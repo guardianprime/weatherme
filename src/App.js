@@ -2,7 +2,8 @@ import Search from "./components/Search";
 import Hero from "./components/Hero";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import {useState} from "react";
+import Weather from "./components/Weather"
+import { useState } from "react";
 
 function App() {
   const [weatherDetails, setWeatherDetails] = useState("");
@@ -10,8 +11,9 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      <Hero weatherDetials={weatherDetails}>
-        <Search weatherDetails={weatherDetails} setWeatherDetails={setWeatherDetails}/>
+      <Hero >
+        <Search setWeatherDetails={setWeatherDetails} />
+        <Weather weatherDetails={weatherDetails} />
       </Hero>
       <Footer />
     </div>

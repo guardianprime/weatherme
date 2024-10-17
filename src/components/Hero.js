@@ -1,8 +1,7 @@
-function Hero({ children , weatherDetails}) {
+function Hero({ children }) {
     return (
         <section className="hero">
             {children}
-            <div className="weather-results"></div>
         </section>
     );
 };
