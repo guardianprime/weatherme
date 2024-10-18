@@ -1,7 +1,17 @@
-function Hero({ children }) {
+import Search from "./Search";
+import WeatherSmallContainers from "./WeatherSmallContainers";
+import WeatherCardCarousel from "./WeatherCardCarousel";
+import { useState } from "react";
+
+
+function Hero() {
+    const [weatherDetails, setWeatherDetails] = useState("");
+
     return (
         <section className="hero">
-            {children}
+            <Search setWeatherDetails={setWeatherDetails} />
+            <WeatherCardCarousel />
+            <WeatherSmallContainers weatherDetails={weatherDetails} />
         </section>
     );
 };
