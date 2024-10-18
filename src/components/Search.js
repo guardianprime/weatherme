@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 
 const secondApikey = "3bf742496d36469eb3b135440241710";
 
-function Search({ setWeatherDetails }) {
-    const [query, setQuery] = useState("");
+function Search({ setWeatherDetails, query, setQuery }) {
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false)
 

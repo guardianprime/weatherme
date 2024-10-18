@@ -5,12 +5,14 @@ import { useState } from "react";
 
 
 function Hero() {
-    const [weatherDetails, setWeatherDetails] = useState("");
+    const [weatherDetails, setWeatherDetails] = useState({});
+    const [query, setQuery] = useState("");
+
 
     return (
         <section className="hero">
-            <Search setWeatherDetails={setWeatherDetails} />
-            <WeatherCardCarousel />
+            <Search setWeatherDetails={setWeatherDetails} query={query} setQuery={setQuery} />
+            <WeatherCardCarousel weatherDetails={weatherDetails} query={query} />
             <WeatherSmallContainers weatherDetails={weatherDetails} />
         </section>
     );

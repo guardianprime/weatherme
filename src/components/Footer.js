@@ -1,7 +1,7 @@
 function Footer() {
-    return(
+    return (
         <footer>
-            <p>made with ❤ by <a href="gordian-okon.vercerl.app">guardianPrime</a></p>
+            <p className="center">made with ❤ by <a href="gordian-okon.vercerl.app" target="_blank">guardianPrime</a></p>
         </footer>
     )
 }
