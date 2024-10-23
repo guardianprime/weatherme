@@ -16,7 +16,7 @@ function Search({ setWeatherDetails, query, setQuery }) {
         async function getGeoLocation() {
             try {
                 setIsLoading(true);
-                const res = await fetch(`https://api.weatherapi.com/v1/current.json?key=${secondApikey}&q=${query}&aqi=no`, { signal: controller.signal });
+                const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${secondApikey}&q=${query}&days=2&aqi=no&alerts=no`, { signal: controller.signal });
                 if (!res.ok) throw new Error("could not fetch the location");
                 const data = await res.json();
                 setWeatherDetails(data);
@@ -36,14 +36,16 @@ function Search({ setWeatherDetails, query, setQuery }) {
     }, [query, setWeatherDetails]);
     return (
         <div className="search-container">
+            <i className="fa-solid fa-magnifying-glass"></i>
             <input
                 type="text"
                 onChange={handleQuery}
                 className="search"
                 value={query}
+                placeholder="Search.."
             />
-            {error ? <div className="error-container">{error}</div> : ""}
-            {isLoading && <div className="loading-container">loading....</div>}
+            {/*  {error ? <div className="error-container">{error}</div> : ""}
+            {isLoading && <div className="loading-container">loading....</div>} */}
         </div>
     );
 }

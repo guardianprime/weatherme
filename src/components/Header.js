@@ -4,7 +4,7 @@ function Header() {
             <nav>
                 <div className="logo">
                     <div className="logo-inner-wrapper">
-                        <img src="../" alt="logo" />
+                        <img src="../images/logo-icon.png" alt="logo" />
                         <span>WeatherMe</span>
                     </div>
                 </div>
@@ -15,6 +15,6 @@ function Header() {
                 </ul>
             </nav>
         </header >);
-}
+};
 
 export default Header;

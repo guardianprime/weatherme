@@ -4,11 +4,19 @@ const today = new Date().toLocaleDateString('en-US', {
     weekday: 'short'
 });
 
-function WeatherCard({ weatherDetails, query }) {
+function WeatherCard({ weatherDetails, query, number }) {
     return (
         <div className="weather-card">
-            <h3 className="city left">{query}<span><i className="fa-solid fa-location-dot"></i></span></h3>
-            <h2 className="temp center" ><img className="thermometer" src="../images/thermometer.png" alt="" /><span>{weatherDetails?.current?.["temp_c"]}</span><img className="currentcloud" src={weatherDetails.current?.condition?.icon} alt="" /></h2>
+        <h1>number</h1>
+            <h3 className="city left">
+                <span>{query}</span>
+                <span><i className="fa-solid fa-location-dot"></i></span>
+            </h3>
+            <h2 className="temp center" >
+                <img className="thermometer" src="../images/thermometer.png" alt="" />
+                <span>{weatherDetails?.current?.["temp_c"]}</span>
+                <img className="currentcloud" src={weatherDetails.current?.condition?.icon} alt="" />
+            </h2>
             <h3 className="center summary">{weatherDetails?.current?.condition?.text}</h3>
             <span className="left today">{today}</span>
             <div className="small-infos">
