@@ -7,6 +7,7 @@ const today = new Date().toLocaleDateString('en-US', {
     weekday: 'short'
 });
 
+
 function WeatherForecast({ weatherDetails, number }) {
     const [isLoading, setIsLoading] = useState(!weatherDetails);
 
@@ -23,32 +24,32 @@ function WeatherForecast({ weatherDetails, number }) {
                     <>
                         <h1>{number}</h1>
                         <h3 className="city left">
-                            <span>{`${weatherdetails.forecast}, ${country}`}</span>
+                            <span>{`${weatherDetails?.location?.name}, ${weatherDetails?.location?.country}`}</span>
                             <span><i className="fa-solid fa-location-dot"></i></span>
                         </h3>
                         <h2 className="temp center">
                             <img className="thermometer" src="../images/thermometer.png" alt="" />
-                            <span>{temp_c}℃</span>
-                            <img className="currentcloud" src={icon} alt="" />
+                            <span>{weatherDetails?.forecast?.forecastday?.[1].day["maxtemp_c"]}℃</span>
+                            <img className="currentcloud" src={weatherDetails?.forecast?.forecastday?.[1]?.day?.condition?.icon} alt="" />
                         </h2>
-                        <h3 className="center summary">{text}</h3>
+                        <h3 className="center summary">{weatherDetails?.forecast?.forecastday?.[1]?.day?.condition?.text}</h3>
                         <span className="left today">{today}</span>
                         <div className="small-infos">
                             <div>
                                 <span>Humidity</span>
-                                <span>{humidity}%</span>
+                                <span>{weatherDetails?.forecast?.forecastday?.[1]?.day?.avghumidity}%</span>
                             </div>
                             <div>
                                 <span>Visibility</span>
-                                <span>{vis_km} km</span>
+                                <span>{weatherDetails?.forecast?.forecastday?.[1]?.day?.avgvis_km} km</span>
                             </div>
                             <div>
-                                <span>Air Pressure</span>
-                                <span>{pressure_mb} hPa</span>
+                                <span>min temp</span>
+                                <span>{weatherDetails?.forecast?.forecastday?.[1]?.day?.["mintemp_c"]}℃</span>
                             </div>
                             <div>
                                 <span>Wind</span>
-                                <span>{wind_mph} mph</span>
+                                <span>{weatherDetails?.forecast?.forecastday?.[1]?.day?.maxwind_mph} mph</span>
                             </div>
                         </div>
                     </>

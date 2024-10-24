@@ -1,9 +1,11 @@
 import WeatherCard from "./WeatherCardView";
-function WeatherCardCarousel({ weatherDetails, query }) {
+import WeatherForecast from "./WeatherForcast";
+
+function WeatherCardCarousel({ weatherDetails }) {
     return (
         <div className="weather-card--container">
-            <WeatherCard weatherDetails={weatherDetails} number="today" forecastbool={true} query={query} />
-            <WeatherCard weatherDetails={weatherDetails} forecastbool={false} number="tomorrow" query={query} />
+            <WeatherCard weatherDetails={weatherDetails} number="today" />
+            <WeatherForecast weatherDetails={weatherDetails} number="tomorrow" />
         </div>
     )
 }

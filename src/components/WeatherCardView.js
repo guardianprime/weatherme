@@ -7,7 +7,7 @@ const today = new Date().toLocaleDateString('en-US', {
     weekday: 'short'
 });
 
-function WeatherCard({ weatherDetails, number, forecastbool }) {
+function WeatherCard({ weatherDetails, number}) {
     const [isLoading, setIsLoading] = useState(!weatherDetails);
 
     useEffect(() => {
