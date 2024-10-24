@@ -17,12 +17,17 @@ function Search({ setWeatherDetails, query, setQuery }) {
             try {
                 setIsLoading(true);
                 const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${secondApikey}&q=${query}&days=2&aqi=no&alerts=no`, { signal: controller.signal });
-                if (!res.ok) throw new Error("could not fetch the location");
+                if (!res.ok) throw new Error("could not fetch the location. try cities like california and london.");
                 const data = await res.json();
+                if (!data) throw new Error("could not find the location");
                 setWeatherDetails(data);
                 console.log(data);
             } catch (err) {
-                setError(err.message);
+                if (err.message === "signal is aborted without reason") {
+                    setError("");
+                } else {
+                    setError(err.message);
+                }
             } finally {
                 setIsLoading(false);
             }
@@ -35,18 +40,20 @@ function Search({ setWeatherDetails, query, setQuery }) {
         }
     }, [query, setWeatherDetails]);
     return (
-        <div className="search-container">
-            <i className="fa-solid fa-magnifying-glass"></i>
-            <input
-                type="text"
-                onChange={handleQuery}
-                className="search"
-                value={query}
-                placeholder="Search.."
-            />
-            {/*  {error ? <div className="error-container">{error}</div> : ""}
-            {isLoading && <div className="loading-container">loading....</div>} */}
-        </div>
+        <>
+            <div className="search-container">
+                <input
+                    type="text"
+                    onChange={handleQuery}
+                    className="search"
+                    value={query}
+                    placeholder="Search.."
+                />
+                <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
+            {error && <div className="error-container">{error}</div>}
+            {isLoading && <div className="loading-container">loading....</div>}
+        </>
     );
 }
 

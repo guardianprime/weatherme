@@ -100,9 +100,17 @@ nav ul li {
 
 .search-container i {
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: 10px;
   color: #666;
   font-size: 25px;
+}
+
+.error-container {
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-family: monospace;
+  margin-bottom: 20px;
 }
 
 /* Styles for HERO Component */
@@ -120,7 +128,7 @@ nav ul li {
   height: 60%;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 /* WeatherCardview / WeatherCard */

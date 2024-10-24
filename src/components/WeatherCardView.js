@@ -7,9 +7,9 @@ const today = new Date().toLocaleDateString('en-US', {
 function WeatherCard({ weatherDetails, query, number }) {
     return (
         <div className="weather-card">
-        <h1>number</h1>
+            <h1>{number}</h1>
             <h3 className="city left">
-                <span>{query}</span>
+                <span>{`${weatherDetails?.location?.name},${weatherDetails?.location?.country}`}</span>
                 <span><i className="fa-solid fa-location-dot"></i></span>
             </h3>
             <h2 className="temp center" >
