@@ -4,7 +4,7 @@ function SmallWeather({ weatherDetails, time, timeString }) {
             <div className="times-details">
                 <h6>{timeString}</h6>
                 <img src={weatherDetails?.forecast?.forecastday?.[0]?.hour[time]?.condition.icon} alt="" />
-                <span>{weatherDetails?.forecast?.forecastday?.[0]?.hour[time]?.["temp_c"] + "C"}</span>
+                <span>{weatherDetails?.forecast?.forecastday?.[0]?.hour[time]?.["temp_c"] + "℃"}</span>
             </div>
             <div className="times-design"></div>
         </div>

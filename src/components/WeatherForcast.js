@@ -7,23 +7,12 @@ const today = new Date().toLocaleDateString('en-US', {
     weekday: 'short'
 });
 
-function WeatherCard({ weatherDetails, number, forecastbool }) {
+function WeatherForecast({ weatherDetails, number }) {
     const [isLoading, setIsLoading] = useState(!weatherDetails);
 
     useEffect(() => {
         setIsLoading(!weatherDetails);
     }, [weatherDetails]);
-    const {
-        location: { name, country } = {},
-        current: {
-            temp_c,
-            condition: { icon, text } = {},
-            humidity,
-            vis_km,
-            pressure_mb,
-            wind_mph
-        } = {}
-    } = weatherDetails || {};
 
     return (
         <ErrorBoundary>
@@ -34,7 +23,7 @@ function WeatherCard({ weatherDetails, number, forecastbool }) {
                     <>
                         <h1>{number}</h1>
                         <h3 className="city left">
-                            <span>{`${name}, ${country}`}</span>
+                            <span>{`${weatherdetails.forecast}, ${country}`}</span>
                             <span><i className="fa-solid fa-location-dot"></i></span>
                         </h3>
                         <h2 className="temp center">
@@ -69,4 +58,4 @@ function WeatherCard({ weatherDetails, number, forecastbool }) {
     );
 }
 
-export default WeatherCard;
+export default WeatherForecast;

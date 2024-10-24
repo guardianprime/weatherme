@@ -105,7 +105,8 @@ nav ul li {
   font-size: 25px;
 }
 
-.error-container {
+.error-container,
+.loading-container {
   text-align: center;
   font-size: 1.5rem;
   font-style: italic;
@@ -142,6 +143,11 @@ nav ul li {
 
 .weather-card h1 {
   text-align: center;
+}
+
+.card-loading {
+  text-align: center;
+  font-size: 3rem;
 }
 
 .city {
