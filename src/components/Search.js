@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import searchImage from "../images/icon-search.png"
 
 const secondApikey = "3bf742496d36469eb3b135440241710";
 
@@ -49,7 +50,8 @@ function Search({ setWeatherDetails, query, setQuery }) {
                     value={query}
                     placeholder="Search location..."
                 />
-                <i className="fa-solid fa-magnifying-glass"></i>
+                <img src={searchImage} alt="magnifying glass" />
+                {/*  <i className="fa-solid fa-magnifying-glass"></i> */}
             </div>
             {error && <div className="error-container">{error}</div>}
             {isLoading && <div className="loading-container">loading....</div>}

@@ -8,14 +8,14 @@ const today = new Date().toLocaleDateString('en-US', {
     weekday: 'short'
 });
 
-function WeatherCard({ weatherDetails, number}) {
+function WeatherCard({ weatherDetails, number }) {
     const [isLoading, setIsLoading] = useState(!weatherDetails);
 
     useEffect(() => {
         setIsLoading(!weatherDetails);
     }, [weatherDetails]);
     const {
-        location: { name} = {},
+        location: { name, country } = {},
         current: {
             temp_c,
             condition: { icon, text } = {},
@@ -35,7 +35,7 @@ function WeatherCard({ weatherDetails, number}) {
                     <>
                         <h1>{number}</h1>
                         <h3 className="city left">
-                            <span className="name">{`${name}`}</span>
+                            <span className="name">{`${name}, ${country}`}</span>
                             <span><i className="fa-solid fa-location-dot"></i></span>
                         </h3>
                         <h2 className="temp center">
