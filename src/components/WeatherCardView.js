@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import thermometerIcon from "../images/icon-temperature.png"
 import ErrorBoundary from "../utility/ErrorBoundary";
 
 const today = new Date().toLocaleDateString('en-US', {
@@ -14,7 +15,7 @@ function WeatherCard({ weatherDetails, number}) {
         setIsLoading(!weatherDetails);
     }, [weatherDetails]);
     const {
-        location: { name, country } = {},
+        location: { name} = {},
         current: {
             temp_c,
             condition: { icon, text } = {},
@@ -34,12 +35,12 @@ function WeatherCard({ weatherDetails, number}) {
                     <>
                         <h1>{number}</h1>
                         <h3 className="city left">
-                            <span>{`${name}, ${country}`}</span>
+                            <span className="name">{`${name}`}</span>
                             <span><i className="fa-solid fa-location-dot"></i></span>
                         </h3>
                         <h2 className="temp center">
-                            <img className="thermometer" src="../images/thermometer.png" alt="" />
-                            <span>{temp_c}℃</span>
+                            <img className="thermometer" src={thermometerIcon} alt="thermometer icon" />
+                            <span className="temp-number">{temp_c}℃</span>
                             <img className="currentcloud" src={icon} alt="" />
                         </h2>
                         <h3 className="center summary">{text}</h3>

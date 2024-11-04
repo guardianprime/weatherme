@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import thermometerIcon from "../images/icon-temperature.png";
 import ErrorBoundary from "../utility/ErrorBoundary";
 
 const today = new Date().toLocaleDateString('en-US', {
@@ -28,7 +29,7 @@ function WeatherForecast({ weatherDetails, number }) {
                             <span><i className="fa-solid fa-location-dot"></i></span>
                         </h3>
                         <h2 className="temp center">
-                            <img className="thermometer" src="../images/thermometer.png" alt="" />
+                            <img className="thermometer" src={thermometerIcon} alt="thermometer icon" />
                             <span>{weatherDetails?.forecast?.forecastday?.[1].day["maxtemp_c"]}℃</span>
                             <img className="currentcloud" src={weatherDetails?.forecast?.forecastday?.[1]?.day?.condition?.icon} alt="" />
                         </h2>

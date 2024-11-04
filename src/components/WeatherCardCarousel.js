@@ -4,8 +4,8 @@ import WeatherForecast from "./WeatherForcast";
 function WeatherCardCarousel({ weatherDetails }) {
     return (
         <div className="weather-card--container">
-            <WeatherCard weatherDetails={weatherDetails} number="today" />
-            <WeatherForecast weatherDetails={weatherDetails} number="tomorrow" />
+            <WeatherCard weatherDetails={weatherDetails} number="Today" />
+            <WeatherForecast weatherDetails={weatherDetails} number="Tomorrow" />
         </div>
     )
 }

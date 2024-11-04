@@ -47,7 +47,7 @@ function Search({ setWeatherDetails, query, setQuery }) {
                     onChange={handleQuery}
                     className="search"
                     value={query}
-                    placeholder="Search.."
+                    placeholder="Search location..."
                 />
                 <i className="fa-solid fa-magnifying-glass"></i>
             </div>
