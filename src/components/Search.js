@@ -2,24 +2,33 @@ import { useState, useEffect } from "react";
 import searchImage from "../images/icon-search.png"
 
 const secondApikey = "3bf742496d36469eb3b135440241710";
-
+const defaultCity = "lagos";
 function Search({ setWeatherDetails, query, setQuery }) {
     const [error, setError] = useState("");
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     function handleQuery(e) {
-        setQuery(e.target.value.toLowerCase().trim());
+        setQuery(e.target.value);
     };
 
+    let temporaryQuery;
+    if (!query) {
+        temporaryQuery = defaultCity;
+    } else {
+        temporaryQuery = query;
+    }
+
     useEffect(() => {
-        if (!query) return;
         const controller = new AbortController();
+        query.toLowerCase().trim();
         async function getGeoLocation() {
             try {
                 setIsLoading(true);
-                const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${secondApikey}&q=${query}&days=2&aqi=no&alerts=no`, { signal: controller.signal });
+                const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${secondApikey}&q=${temporaryQuery}&days=2&aqi=no&alerts=no`, { signal: controller.signal });
+
                 if (!res.ok) throw new Error("could not fetch the location. try cities like california and london.");
                 const data = await res.json();
+
                 if (!data) throw new Error("could not find the location");
                 setWeatherDetails(data);
                 console.log(data);
@@ -39,7 +48,8 @@ function Search({ setWeatherDetails, query, setQuery }) {
         return () => {
             controller.abort();
         }
-    }, [query, setWeatherDetails]);
+    }, [temporaryQuery, query, setWeatherDetails]);
+
     return (
         <>
             <div className="search-container">

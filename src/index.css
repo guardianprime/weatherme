@@ -56,6 +56,11 @@ nav {
   height: 50px;
 }
 
+footer p a {
+  color: white;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 1195px) {
   /* STYLES FOR THE HEADER COMPONENT */
   nav {
