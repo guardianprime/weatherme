@@ -230,7 +230,7 @@ nav ul {
 }
 
 .times-design {
-  width: 102%;
+  width: 100%;
   height: 60%;
   background-color: var(--BODY-BGCOLOR-DARK);
   position: absolute;
@@ -435,7 +435,7 @@ footer p a {
     height: 90%;
   }
 
-  .weatherSmallContainers div:last-child {
+  .weatherSmallContainers:nth-child(7) {
     display: none;
   }
 

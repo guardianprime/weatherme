@@ -12,7 +12,7 @@ function WeatherSmallContainers({ weatherDetails }) {
             <SmallWeather weatherDetails={weatherDetails} timeString="21:00" time="21" />
             <SmallWeather weatherDetails={weatherDetails} timeString="22:00" time="22" />
             <SmallWeather weatherDetails={weatherDetails} timeString="23:00" time="23" />
-        </div >
+        </div>
     )
 }
 
