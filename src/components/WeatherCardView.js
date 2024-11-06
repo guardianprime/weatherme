@@ -34,7 +34,7 @@ function WeatherCard({ weatherDetails, number }) {
                 ) : (
                     <>
                         <h1>{number}</h1>
-                        <h3 className="city left">
+                        <h3 className="city">
                             <span className="name">{`${name}, ${country}`}</span>
                             <span><i className="fa-solid fa-location-dot"></i></span>
                         </h3>
